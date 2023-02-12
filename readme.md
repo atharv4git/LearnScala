@@ -1,2 +1,2 @@
 # Learn Scala 
-![Scala-image](https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Scala-full-color.svg/1200px-Scala-full-color.svg.png)
+![Scala-image](https://miro.medium.com/max/638/1*kz8ileuECZ9ubuwmpGUyHQ.jpeg)

@@ -2,15 +2,16 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import scala.io.StdIn
 
+val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+
 case class Todo(id:Int, name:String, desc:String, taskDone: Boolean, datetime: LocalDateTime)
 
-val todos = List(
+var todos = List(
             Todo(1,"name1", "desc1", false, LocalDateTime.parse("2022-03-01 10:30:00", formatter)),
             Todo(2,"name2", "desc2", true, LocalDateTime.parse("2022-03-01 11:30:00", formatter)),
             Todo(3,"name3", "desc3", false, LocalDateTime.parse("2022-03-01 12:30:00", formatter))
         )
 
-val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
 object todolist{
     def main(args: Array[String]): Unit = {
         
@@ -19,7 +20,7 @@ object todolist{
         todos
     }
 
-    def addTask(): List[Todo] = {
+    def addTask(): Unit = {
         println("Enter the name of the task: ")
         val name = StdIn.readLine()
         println("Enter the description of the task: ")
@@ -29,7 +30,8 @@ object todolist{
         id=id+1
         val newTask = Todo(id,name, desc, taskDone, LocalDateTime.parse(LocalDateTime.now().format(formatter), formatter))
         println("Task added to the list successfully!")
-        todos :+ newTask
+        val newList = todos :+ newTask
+        todos = newList
     }
 
 
